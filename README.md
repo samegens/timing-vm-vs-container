@@ -17,3 +17,10 @@ podman run --rm --name nginx-container -p 8080:80 nginx:latest
 ```
 
 The wait script will display 'Nginx up and running!' when the container has fully started.
+
+## Results
+
+On my Framework 16:
+
+- VM: 10.4 s
+- container: 0.2 s
