@@ -1,8 +1,31 @@
 # Timing boot time of VM vs container
 
+## Prerequisites
+
+VMware Workstation, tested with 17.6.4 on Kubuntu 24.04.
+
 ## Usage
 
-To time the start time of the container:
+### Time the VM
+
+Create the VM and shut it down using
+
+```bash
+./up.sh
+vagrant halt
+```
+
+In a shell on the host run
+
+```bash
+./wait-for-http-8080.sh
+```
+
+In VMware Workstation start the VM.
+The wait script will display 'Nginx up and running!' when the VM has fully started.
+
+### Time the container
+
 In one shell run
 
 ```bash
@@ -12,6 +35,7 @@ In one shell run
 In another shell run
 
 ```bash
+./up.sh
 vagrant ssh
 podman run --rm --name nginx-container -p 8080:80 nginx:latest
 ```
